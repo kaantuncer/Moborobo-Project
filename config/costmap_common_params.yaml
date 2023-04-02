@@ -1,0 +1,14 @@
+obstacle_range: 30
+raytrace_range: 30
+footprint: [[0.387,0.235],[0.387,-0.235],[-0.387,-0.235],[-0.387,0.235]]
+
+map_topic: /map
+subscribe_to_update: true
+
+observation_sources: laser_scan_sensor
+
+laser_scan_sensor: {sensor_frame: robosense_base_link,data_type: LaserScan, topic: /scan, marking: true , clearing: true, min_obstacle_height: 0}
+
+global_frame: map
+robot_base_frame: base_link
+always_send_full_costmap: true

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+  <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+    <gazebo>
+        <plugin name="bizim_bot_controller"
+                filename="libgazebo_ros_diff_drive.so">
+            <leftJoint>left_wheel_joint</leftJoint>
+            <rightJoint>right_wheel_joint</rightJoint>
+            <legacyMode>false</legacyMode>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <wheelSeparation>0.380</wheelSeparation>
+            <wheelDiameter>0.2</wheelDiameter>
+            <publishWheelJointState>true</publishWheelJointState>
+        </plugin>
+      </gazebo>
+       <gazebo>
+        <plugin name="joint_state_publisher"
+                filename="libgazebo_ros_joint_state_publisher.so">
+            <jointName>front_caster_1_joint, front_caster_2_joint, back_caster_1_joint, back_caster_2_joint</jointName>
+        </plugin>
+      </gazebo>
+  
+  
+  </robot>

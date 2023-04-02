@@ -1,0 +1,25 @@
+#local_costmap:
+#  update_frequency: 20
+#  publish_frequency: 5
+#  transform_tolerance: 1.25
+#  static_map: false
+#  rolling_window: true
+#  width: 10.0
+#  height: 10.0
+#  origin_x: -1.5
+#  origin_y: -1.5
+#  resolution: 0.1
+#  inflation_radius: 8
+
+local_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+  update_frequency: 0.5
+  publish_frequency: 0.5
+  rolling_window: true
+  width: 10
+  height: 10
+  resolution: 0.1
+  origin_x: 0
+  origin_y: 0
+  transform_tolerance: 4
