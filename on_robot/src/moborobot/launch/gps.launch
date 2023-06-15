@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<launch>
+    <!-- Starting motors -->
+    <include file="$(find moborobot)/launch/motor_only.launch" />
+
+    <!-- Starting zed camera -->
+    <include file="$(find zed_wrapper)/launch/zed2.launch" />
+
+    <!-- Starting rslidar -->
+    <include file="$(find rslidar_sdk)/launch/start.launch" />
+
+    <!-- Transfrom rslidar to base_link-->
+    <node pkg="tf" type="static_transform_publisher" name="lidar_to_base_link" args="0.07670732 -0.02332726 -0.09587204 0.52439833 -0.49586978  0.47915963  0.49952538 base_link rslidar 100" />
+
+    <!--  Generate laser scan data from rslidar pointcloud2   -->
+    <include file="$(find pointcloud_to_laserscan)/launch/rslidar.launch" />
+
+    <!--  GPS   -->
+    <node pkg="gpsDriver" name="locoSysPublisher" type="locoSysPublisher.py" output="screen"/>
+
+</launch>

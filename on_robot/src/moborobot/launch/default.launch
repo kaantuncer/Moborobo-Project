@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- Starting motors -->
+    <include file="$(find moborobot)/launch/motor_only.launch" />
+
+    <!-- Starting zed camera -->
+    <include file="$(find zed_wrapper)/launch/zed_no_tf.launch" />
+
+    <!-- Starting rslidar -->
+    <include file="$(find rslidar_sdk)/launch/start.launch" />
+
+    <!-- Transfrom rslidar to base_link-->
+    <node pkg="tf" type="static_transform_publisher" name="lidar_to_base_link" args="0 0 0.4 0 0 0 1 base_link rslidar 100" />
+    
+    <!-- Generate laser scan data from rslidar pointcloud2  -->
+    <include file="$(find pointcloud_to_laserscan)/launch/rslidar.launch" />
+
+    <!-- Generate laser scan data from rslidar pointcloud2  -->
+    <include file="$(find slam_toolbox)/launch/online_async.launch" />
+    
+    <!-- Move base navigation -->    
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+        <param name="controller_frequency" value="10.0" />
+        <rosparam file="$(find moborobot)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+        <rosparam file="$(find moborobot)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+        <rosparam file="$(find moborobot)/config/local_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find moborobot)/config/global_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find moborobot)/config/trajectory_planner.yaml" command="load" />
+    </node>
+   
+
+</launch>

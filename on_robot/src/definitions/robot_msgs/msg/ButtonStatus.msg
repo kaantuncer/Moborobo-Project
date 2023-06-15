@@ -1,0 +1,3 @@
+bool continue_button
+bool halt_button
+bool controller_mode_button

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="roboteq_driver" type="roboteq_driver" name="roboteq_driver" output="screen"/>
+
+    <include file="$(find kinematics)/launch/kinematics.launch"/>
+
+    <include file="$(find joy_to_vel)/launch/joy.launch"/>
+
+</launch>

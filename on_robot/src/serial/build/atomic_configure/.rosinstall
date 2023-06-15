@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/moborobot/catkin_ws/src/serial/build/devel/setup.sh

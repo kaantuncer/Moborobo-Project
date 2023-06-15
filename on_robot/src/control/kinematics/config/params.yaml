@@ -1,0 +1,6 @@
+cmd_vel_topic: 'cmd_vel'
+motor_command: '/ptk/motor_command_topic' 
+Wheel_Seperation_Width: 0.393
+Wheel_Seperation_Length: 1.620
+Wheel_Radius: 0.202
+Gear_Ratio: 47.25

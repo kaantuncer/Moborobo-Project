@@ -1,0 +1,3 @@
+int32 continue_button
+int32 halt_button
+int32 controller_mode_button

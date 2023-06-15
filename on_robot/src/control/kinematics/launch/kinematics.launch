@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="base_width" default="0.355" />
+    <arg name="wheel_radius" default="0.1" />
+    <arg name="reduction_rate" default="25" />
+
+    <node pkg="kinematics" type="kinematics_node" name="kinematics_node" output="screen">
+        <param name="base_width" type="double" value="$(arg base_width)"/>
+        <param name="wheel_radius" type="double" value="$(arg wheel_radius)"/>
+        <param name="reduction_rate" type="double" value="$(arg reduction_rate)"/>
+    </node>
+    
+    <node pkg="kinematics" type="inverse_kinematics_node" name="inverse_kinematics_node" output="screen">
+        <param name="base_width" type="double" value="$(arg base_width)"/>
+        <param name="wheel_radius" type="double" value="$(arg wheel_radius)"/>
+        <param name="reduction_rate" type="double" value="$(arg reduction_rate)"/>
+    </node>
+</launch>
