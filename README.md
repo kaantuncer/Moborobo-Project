@@ -1,4 +1,6 @@
 # Moborobot
+You can find the website for the project here: https://tuanacetinkaya.github.io/Moborobot/
+
 In today’s world, many tasks were automated by various types of robots. Mobile robots are a subfield of robotics that are automatic machines capable of locomotion. They are used in various fields such as entertainment, domestic appliances, military and medical fields. These applications require mobile robots to perform complicated tasks and navigate in different environments. This project focuses on a real mobile robot that is capable of autonomously navigate from point A to point B. Our robot features a 3D LidAR sensor, a ZED2 camera, odometry data through its motors and a gps sensor. For the purposes of this project we only used the LidAR sensor and the odometry data. We used these to map the environment and generate costmaps to avoid obstacles. 
 
 
